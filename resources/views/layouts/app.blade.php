@@ -21,6 +21,9 @@
             *{
                 font-family: 'Baloo Bhaina 2', cursive;
             }
+            .bg-footer{
+                background-color: #171E2B;
+            }
             .button-orange{
                 background-color: #F87D09;
             }
