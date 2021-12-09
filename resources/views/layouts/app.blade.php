@@ -24,6 +24,9 @@
             .bg-footer{
                 background-color: #171E2B;
             }
+            .text-footer{
+                color: #A7CDCC;
+            }
             .button-orange{
                 background-color: #F87D09;
             }
