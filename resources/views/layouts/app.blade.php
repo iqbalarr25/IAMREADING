@@ -72,6 +72,8 @@
                 color: #2b6cb0;  /*Set to match the Tailwind colour you want the active one to be */
             }
         </style>
+        <livewire:styles/>
+        
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-white">
@@ -81,5 +83,6 @@
                 {{ $slot }}
             </main>
         </div>
+        <livewire:scripts/>
     </body>
 </html>
