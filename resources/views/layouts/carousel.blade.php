@@ -35,15 +35,4 @@
                 </ol>
             </div>
         </div>
-        <div class="flex grid grid-cols-2">
-            <a href="">
-                <div class="text-center text-white p-8 text-5xl font-bold button-blue">
-                    Novel
-                </div>
-            </a>
-            <a href="">
-                <div class="text-center text-white p-8 text-5xl font-bold button-orange">
-                    Comics
-                </div>
-            </a>
-        </div>
+        
