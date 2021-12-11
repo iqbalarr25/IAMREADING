@@ -1,5 +1,4 @@
 <div>
-
     @include('layouts.carousel')
     <div class="flex grid grid-cols-2">
             <button wire:click="novelpage">
@@ -14,10 +13,10 @@
             </button>
         </div>
     <div class="mx-auto my-20 max-w-2xl">
-        <button wire:click="semua" class="text-2xl font-semibold px-9 py-1 @if($reclist && $newlist && $disclist) bg-gray-300 @endif hover:bg-gray-300">All</button>
-        <button wire:click="rekomendasi" class="text-2xl font-semibold px-9 py-1 @if($reclist && !$newlist && !$disclist) bg-gray-300 @endif hover:bg-gray-300">Recommended</button>
-        <button wire:click="baru" class="text-2xl font-semibold px-9 py-1 @if(!$reclist && $newlist && !$disclist) bg-gray-300 @endif hover:bg-gray-300">New</button>
-        <button wire:click="diskon" class="text-2xl font-semibold px-9 py-1 @if(!$reclist && !$newlist && $disclist) bg-gray-300 @endif hover:bg-gray-300">Discount</button>
+        <button wire:click="semua" class="text-2xl font-semibold px-9 py-3 @if($reclist && $newlist && $disclist) bg-gray-300 @endif hover:bg-gray-300">All</button>
+        <button wire:click="rekomendasi" class="text-2xl font-semibold px-9 py-3 @if($reclist && !$newlist && !$disclist) bg-gray-300 @endif hover:bg-gray-300">Recommended</button>
+        <button wire:click="baru" class="text-2xl font-semibold px-9 py-3 @if(!$reclist && $newlist && !$disclist) bg-gray-300 @endif hover:bg-gray-300">New</button>
+        <button wire:click="diskon" class="text-2xl font-semibold px-9 py-3 @if(!$reclist && !$newlist && $disclist) bg-gray-300 @endif hover:bg-gray-300">Discount</button>
     </div>
     <div class="mx-24">
         @if($reclist)
