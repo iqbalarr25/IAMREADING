@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Show;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,5 +14,6 @@ use App\Http\Livewire\Dashboard;
 |
 */
 Route::get('/', Dashboard::class)->name('/');
+Route::get('/show/{id}', Show::class);
 
 require __DIR__.'/auth.php';

@@ -21,6 +21,9 @@
             *{
                 font-family: 'Baloo Bhaina 2', cursive;
             }
+            .bg-jenis{
+                background-color: #FFFDD1;
+            }
             .bg-footer{
                 background-color: #171E2B;
             }
@@ -77,12 +80,12 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-white">
-            @include('layouts.navigation')
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
+        @include('layouts.footer')
         <livewire:scripts/>
     </body>
 </html>

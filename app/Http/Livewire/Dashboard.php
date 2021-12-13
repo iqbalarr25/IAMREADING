@@ -22,16 +22,16 @@ class Dashboard extends Component
         $this->novelpage=true;
         $this->komikpage=false;
         $this->semua();
-        $this->bukusrec = Buku::where('jenis', 'Novel')->latest()->take(5)->get();
-        $this->bukusnew = Buku::where('jenis', 'Novel')->orderBy('terjual', 'DESC')->take(5)->get();
+        $this->bukusnew = Buku::where('jenis', 'Novel')->latest()->take(5)->get();
+        $this->bukusrec = Buku::where('jenis', 'Novel')->whereNotNull('terjual')->orderBy('terjual', 'DESC')->take(5)->get();
         $this->bukusdisc = Buku::where('jenis', 'Novel')->whereNotNull('diskon')->take(5)->get();
     }
     public function komikpage(){
         $this->komikpage=true;
         $this->novelpage=false;
         $this->semua();
-        $this->bukusrec = Buku::where('jenis', 'Komik')->latest()->take(5)->get();
-        $this->bukusnew = Buku::where('jenis', 'Komik')->orderBy('terjual', 'DESC')->take(5)->get();
+        $this->bukusnew = Buku::where('jenis', 'Komik')->latest()->take(5)->get();
+        $this->bukusrec = Buku::where('jenis', 'Komik')->whereNotNull('terjual')->orderBy('terjual', 'DESC')->take(5)->get();
         $this->bukusdisc = Buku::where('jenis', 'Komik')->whereNotNull('diskon')->take(5)->get();
     }
     public function semua(){
@@ -53,5 +53,5 @@ class Dashboard extends Component
         $this->reclist=false;
         $this->newlist=false;
         $this->disclist=true;
-    }
+    }   
 }
