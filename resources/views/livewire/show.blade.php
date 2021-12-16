@@ -31,6 +31,63 @@
                 {{$buku->deskripsi}}
             </div>
             <hr class="border-gray-400 my-2">
+            <div class="font-semibold text-4xl my-9">
+                Detail Information
+            </div>
+            <div class=" grid grid-cols-2">
+                <div>
+                    <div class="text-xl font-base">
+                        Total Pages
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->halaman}}
+                    </div>
+                    <div class="text-xl font-base">
+                        Published Date
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->halaman}}
+                    </div>
+                    <div class="text-xl font-base">
+                        ISBN
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->ISBN}}
+                    </div>
+                    <div class="text-xl font-base">
+                        Language
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->bahasa}}
+                    </div>
+                </div>
+                <div>
+                    <div class="text-xl font-base">
+                        Publisher
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->penerbit}}
+                    </div>
+                    <div class="text-xl font-base">
+                        Weight
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->berat}} kg
+                    </div>
+                    <div class="text-xl font-base">
+                        Width
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->lebar}} cm
+                    </div>
+                    <div class="text-xl font-base">
+                        Length
+                    </div>
+                    <div class="text-xl font-semibold mb-8">
+                        {{$buku->tinggi}} cm
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
