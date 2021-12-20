@@ -29,7 +29,7 @@
             }
             .text-footer{
                 color: #A7CDCC;
-            }
+            }004A55
             .button-orange{
                 background-color: #F87D09;
             }
@@ -41,6 +41,10 @@
             }
             .button-blue{
                 background-color: #004A55;
+            }
+            .text-primary-blue{
+                color: #004A55;
+                border-color: #004A55;
             }
             .button-blue:hover{
                 background-color: #003F48;
@@ -79,7 +83,7 @@
         
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-white">
+        <div class="min-h-screen bg-gray-50">
             <!-- Page Content -->
             <main>
                 {{ $slot }}
