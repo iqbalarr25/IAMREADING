@@ -21,7 +21,7 @@
     </div>
     <div class="mx-24">
         @if($reclist)
-        <div class="my-16">
+        <div class="py-16">
             <span class="text-4xl font-bold">
                 Recommended
             </span>
@@ -55,13 +55,13 @@
             
             @endforeach
         </div>
-        <div class="my-20"></div>
+        <div class="py-14"></div>
         @if($reclist && $newlist && $disclist)
         <hr class="border-gray-400 my-2">
         @endif
         @endif
         @if($newlist)
-        <div class="my-16">
+        <div class="py-14">
             <span class="text-4xl font-bold">
                 New
             </span>
@@ -94,13 +94,13 @@
             </div>
             @endforeach
         </div>
-        <div class="my-20"></div>
+        <div class="py-14"></div>
         @if($reclist && $newlist && $disclist)
         <hr class="border-gray-400 my-2">
         @endif
         @endif
         @if($disclist)
-        <div class="my-16">
+        <div class="py-14">
             <span class="text-4xl font-bold">
                 Discount
             </span>
@@ -133,7 +133,7 @@
             </div>
             @endforeach
         </div>
-        <div class="my-20"></div>
+        <div class="py-14"></div>
         @endif
     </div>
 </div>

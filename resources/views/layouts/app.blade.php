@@ -21,6 +21,9 @@
             *{
                 font-family: 'Baloo Bhaina 2', cursive;
             }
+            .border-orange{
+                border-color: #F87D09;
+            }
             .bg-jenis{
                 background-color: #FFFDD1;
             }
@@ -29,7 +32,7 @@
             }
             .text-footer{
                 color: #A7CDCC;
-            }004A55
+            }
             .button-orange{
                 background-color: #F87D09;
             }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Show;
+use App\Http\Livewire\DetailTransaksi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,7 @@ use App\Http\Livewire\Show;
 |
 */
 Route::get('/', Dashboard::class)->name('/');
+Route::get('/detailtransaksi', DetailTransaksi::class);
 Route::get('/show/{id}', Show::class);
 
 require __DIR__.'/auth.php';

@@ -32,4 +32,13 @@ class Show extends Component
             $this->jumlahBeli--;
         }
     }
+    public function buy()
+    {
+
+    }
+
+    public function cart()
+    {
+        
+    }
 }
