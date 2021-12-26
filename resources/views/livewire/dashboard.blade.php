@@ -1,5 +1,5 @@
 <div>
-    @include('layouts.navigation')
+    <livewire:navigation /> 
     @include('layouts.carousel')
     <div class="flex grid grid-cols-2">
             <button wire:click="novelpage">
@@ -52,7 +52,6 @@
                         </div>
                     </a>
                 </div>
-            
             @endforeach
         </div>
         <div class="py-14"></div>

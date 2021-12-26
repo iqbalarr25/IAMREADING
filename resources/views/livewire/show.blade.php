@@ -1,5 +1,5 @@
 <div>
-    @include('layouts.navigation')
+    <livewire:navigation/> 
     <div class="mx-24 mt-10">
         <div class="grid grid-cols-3">
             <div class="mx-auto">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div>
-                            <button class="my-3 h-12 w-full border-2 rounded-3xl font-medium text-primary-blue flex items-center">
+                            <button wire:click="cart" class="my-3 h-12 w-full border-2 rounded-3xl font-medium text-primary-blue flex items-center">
                                 <div class="mx-auto flex justify-between">
                                     <img src="{{ asset('img/store.png') }}" alt="" class=" w-6 my-auto mr-1">
                                     <div class="my-auto">
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                             </button>
-                            <button class=" h-12 w-full rounded-3xl font-medium button-blue text-white">
+                            <button wire:click="buy" class=" h-12 w-full rounded-3xl font-medium button-blue text-white ">
                                 <div class="my-auto mx-auto">
                                     Buy Now
                                 </div>

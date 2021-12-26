@@ -1,3 +1,4 @@
+<div>
 <nav x-data="{ open: false }" class="py-14 px-16">
     <!-- Primary Navigation Menu -->
     <div class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,7 +9,6 @@
                     <x-application-logo class="block h-10 w-auto fill-current text-gray-600"/>
                 </a>
             </div>
-
             <div class="dropdown inline-block relative my-auto ml-14">
                 <div class="flex justify-between w-36">
                     <button class="text-gray-700 font-semibold text-2xl my-auto rounded inline-flex items-center">
@@ -24,11 +24,10 @@
                     </li>
                 </ul>
             </div>
-
             <div class="relative mx-auto text-gray-600 my-auto">
-                <input class=" w-96 p-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-md-center"
+                <input wire:model="search" class=" w-96 p-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-md-center"
                 type="search" name="search" placeholder="Search">
-                    <button type="submit" class="absolute right-0 top-0 mt-4 mr-4">
+                    <button wire:click="search" class="absolute right-0 top-0 mt-4 mr-4">
                         <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                         viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
@@ -38,8 +37,12 @@
                         </svg>
                     </button>
             </div>
-            <a href="/" class="my-auto flex-shrink-0"><img src="{{ asset('img/store.png') }}" alt="" class=" flex-shrink-0"></a>
-
+            <div>
+                <a href="/cart" class="my-auto flex-shrink-0 relative p-1"><img src="{{ asset('img/store.png') }}" alt="" class=" flex-shrink-0">
+                    @auth @if($count!=0)<div class="absolute top-7 left-7 font-semibold text-white rounded-full bg-red-500 w-5 h-5 flex items-center justify-center pt-1">{{$count}}</div>@endif @endauth
+                </a>
+            </div>
+            
             <!-- Settings Dropdown -->
             
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -129,3 +132,6 @@
         </div>
     </div>
 </nav>
+
+
+</div>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Show;
 use App\Http\Livewire\DetailTransaksi;
+use App\Http\Livewire\Search;
+use App\Http\Livewire\Cart;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,10 @@ use App\Http\Livewire\DetailTransaksi;
 |
 */
 Route::get('/', Dashboard::class)->name('/');
-Route::get('/detailtransaksi', DetailTransaksi::class);
+Route::get('/detailtransaksi/{id}', DetailTransaksi::class);
 Route::get('/show/{id}', Show::class);
+Route::get('/search/{judul}', Search::class);
+Route::get('/cart', Cart::class)->middleware('auth');
+
 
 require __DIR__.'/auth.php';
