@@ -26,10 +26,30 @@
                         </button>
                     </x-slot>
                     <x-slot name="content">
+                        <x-dropdown-link class="text-center" :href="route('logout')"
+                            onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                            {{ __('Profile') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link class="text-center" :href="route('logout')"
+                            onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                            {{ __('Address') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link class="text-center" :href="route('logout')"
+                            onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                            {{ __('History') }}
+                        </x-dropdown-link>
+                        @if(Auth::user()->role == 'admin')
+                        <x-dropdown-link class="text-center" :href="route('admin')">
+                            {{ __('Admin') }}
+                        </x-dropdown-link>
+                        @endif
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <x-dropdown-link :href="route('logout')"
+                            <x-dropdown-link class="text-center" :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
@@ -38,6 +58,7 @@
                     </x-slot>
                 </x-dropdown>
                 @endauth
+                @guest
                 <div class=" w-80 my-auto flex justify-between flex-shrink-0">
                     <div class="flex">
                         <a href="/" class="my-auto flex-shrink-0 pr-6"><img src="{{ asset('img/store.png') }}" alt="" class=" flex-shrink-0"></a>
@@ -49,6 +70,7 @@
                         </form>
                     </div>
                 </div>
+                @endguest
             </div>
 
             <!-- Hamburger -->

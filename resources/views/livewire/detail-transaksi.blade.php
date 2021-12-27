@@ -65,7 +65,7 @@
                         Total Price
                     </div>
                     <div class="text-orange text-3xl font-bold my-auto">
-                        Rp.42.000
+                        Rp.{{number_format($jumlah_harga,0,",",".")}}
                     </div>
                 </div>
                 

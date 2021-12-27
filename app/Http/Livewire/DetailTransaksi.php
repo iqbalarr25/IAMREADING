@@ -10,6 +10,7 @@ class DetailTransaksi extends Component
     public $id_transaksis;
     public $transaksis = [];
     public $jumlah = 0;
+    public $jumlah_harga = 0;
     public $count = 1;
 
     public function mount($id)
@@ -21,7 +22,8 @@ class DetailTransaksi extends Component
             }
         }
         foreach($this->transaksis as $transaksi){
-            $this->jumlah += $transaksi->jumlah; 
+            $this->jumlah += $transaksi->jumlah;
+            $this->jumlah_harga += $transaksi->jumlah_harga;
         }
     }
     

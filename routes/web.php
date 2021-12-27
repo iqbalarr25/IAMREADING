@@ -6,6 +6,7 @@ use App\Http\Livewire\Show;
 use App\Http\Livewire\DetailTransaksi;
 use App\Http\Livewire\Search;
 use App\Http\Livewire\Cart;
+use App\Http\Livewire\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,6 @@ Route::get('/detailtransaksi/{id}', DetailTransaksi::class);
 Route::get('/show/{id}', Show::class);
 Route::get('/search/{judul}', Search::class);
 Route::get('/cart', Cart::class)->middleware('auth');
-
+Route::get('/admin', Admin::class)->name('admin')->middleware('auth');
 
 require __DIR__.'/auth.php';
