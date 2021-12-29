@@ -28,7 +28,7 @@ class Buku extends Migration
             $table->integer('stock');
             $table->string('jenis');
             $table->integer('harga');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('diskon')->nullable();
             $table->integer('terjual')->nullable();
             $table->timestamps();

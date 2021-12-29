@@ -19,7 +19,7 @@
                     <div class="grid grid-rows-4">
                         <input class="p-3" type="checkbox" wire:model="selectedBukus" value="{{ $cart->id }}">
                     </div>
-                    <img src="{{ asset('img/'.$cart->buku->image) }}" class=" w-28">
+                    <img src="{{ asset('cover/'.$cart->buku->image) }}" class=" w-28">
                     <div class="grid grid-rows-4">
                         <div class="my-auto text-2xl font-semibold">
                             {{$cart->buku->judul}}

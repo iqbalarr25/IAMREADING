@@ -1,4 +1,4 @@
-<div>
+<div >
     @include('layouts.navigation-auth')
     <div class="grid grid-cols-5">
         <div class="text-3xl text-primary-blue w-full px-10">
@@ -19,13 +19,26 @@
                 </button>
             </div>
         </div>
+        @if($openModal)
+        @include('livewire.modal')
+        @endif
         <div class="bg-gray-100 min-h-screen w-full col-start-2 col-end-6 px-12">
             <div class="text-4xl font-bold my-12">
                 Books
             </div>
+            @if(session('message')!=null)
+            <div class="bg-teal-100 border rounded-b text-teal-900 px-4 py-3 shadow-md my-3"
+                role="alert">
+                <div class="flex">
+                    <div>
+                        <p class="text-sm">{{ session('message') }}</p>
+                    </div>
+                </div>
+            </div>
+            @endif
             <div class="flex justify-between">
                 <div>
-                    <button class="flex button-blue rounded-full px-10 py-4 gap-2">
+                    <button wire:click="openModal" class="flex button-blue rounded-full px-10 py-4 gap-2">
                         <img src="{{asset('img/add.png')}}" class="py-1">
                         <div class="text-2xl text-white font-semibold my-auto">
                             Add Books
@@ -36,7 +49,7 @@
                     <div class="relative mx-auto text-gray-600 my-auto">
                     <input wire:model="search" class=" w-96 p-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-md-center"
                     type="search" name="search" placeholder="Search">
-                        <button wire:click="search" class="absolute right-0 top-0 mt-4 mr-4">
+                        <button class="absolute right-0 top-0 mt-4 mr-4">
                             <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                             viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
@@ -59,14 +72,14 @@
                         <th class="text-2xl py-5 w-1/4">Edit</th>
                         </tr>
                     </thead>
+                    <tbody class="bg-grey-light flex flex-col items-center overflow-y-scroll w-full" style="height: 50vh;" >
                     @foreach($bukus as $buku)
-                    <tbody class="bg-grey-light flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 50vh;" >
-                        <tr class="flex w-full mb-4">
-                        <td class="text-xl font-medium py-5 text-center w-1/4">{{$buku->ISBN}}</td>
-                        <td class="text-xl font-medium py-5 text-center w-1/4">{{$buku->penulis}}</td>
-                        <td class="text-xl font-medium py-5 text-center w-1/4">{{$buku->judul}}</td>
-                        <td class="text-xl font-medium py-5 text-center w-1/4">{{$buku->penerbit}}</td>
-                        <td class="text-xl font-medium py-5 w-1/4 flex justify-center gap-5">
+                        <tr class="flex w-full">
+                        <td class="text-xl font-medium py-3 text-center w-1/4">{{$buku->ISBN}}</td>
+                        <td class="text-xl font-medium py-3 text-center w-1/4">{{$buku->penulis}}</td>
+                        <td class="text-xl font-medium py-3 text-center w-1/4">{{$buku->judul}}</td>
+                        <td class="text-xl font-medium py-3 text-center w-1/4">{{$buku->penerbit}}</td>
+                        <td class="text-xl font-medium py-3 w-1/4 flex justify-center gap-5">
                             <button wire:click="edit({{$buku->id}})" class="h-8">
                                 <img src="{{ asset('img/edit.png') }}">
                             </button>
@@ -74,9 +87,9 @@
                                 <img src="{{ asset('img/delete.png') }}">
                             </button>
                         </td>
-                        </tr>   
+                        </tr>
+                    @endforeach 
                     </tbody>
-                    @endforeach
                 </table>
             </div>
         </div>

@@ -30,7 +30,7 @@
             @foreach($bukusrec as $bukurec)
                 <div class="w-full max-h-full rounded overflow-hidden shadow-lg relative flex flex-col shadow-2xl hover:bg-gray-100">
                     <a class="p-4" href="/show/{{$bukurec->id}}/">
-                        <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('img/'.$bukurec->image) }}" alt="Sunset in the mountains">
+                        <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('cover/'.$bukurec->image) }}" alt="Sunset in the mountains">
                         <div class="pt-3 h-full">
                             <div class="text-lg">
                                 {{$bukurec->penulis}}
@@ -69,7 +69,7 @@
             @foreach($bukusnew as $bukunew)
             <div class="w-full max-h-full rounded overflow-hidden shadow-lg relative flex flex-col shadow-2xl hover:bg-gray-100">
                 <a class="p-4" href="/show/{{$bukunew->id}}/">
-                    <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('img/'.$bukunew->image) }}" alt="Sunset in the mountains">
+                    <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('cover/'.$bukunew->image) }}" alt="Sunset in the mountains">
                     <div class="pt-3 h-full">
                         <div class="text-lg">
                             {{$bukunew->penulis}}
@@ -108,7 +108,7 @@
             @foreach($bukusdisc as $bukudisc)
             <div class="w-full max-h-full rounded overflow-hidden shadow-lg relative flex flex-col shadow-2xl hover:bg-gray-100">
                 <a class="p-4" href="/show/{{$bukudisc->id}}/">
-                    <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('img/'.$bukudisc->image) }}" alt="Sunset in the mountains">
+                    <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('cover/'.$bukudisc->image) }}" alt="Sunset in the mountains">
                     <div class="pt-3 h-full">
                         <div class="text-lg">
                             {{$bukudisc->penulis}}

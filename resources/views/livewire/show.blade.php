@@ -3,7 +3,7 @@
     <div class="mx-24 mt-10">
         <div class="grid grid-cols-3">
             <div class="mx-auto">
-                <img src="{{ asset('img/jujutsu.png') }}" alt="" class="w-80 shadow-2xl">
+                <img src="{{ asset('cover/'.$buku->image) }}" alt="" class="w-80 shadow-2xl">
                 <div class="my-16 bg-white h-auto rounded rounded-xl shadow-xl">
                     <div class="p-6">
                         <div class="text-gray-400 text-xl font-medium">
@@ -99,7 +99,7 @@
                             Published Date
                         </div>
                         <div class="text-xl font-semibold mb-8">
-                            {{$buku->halaman}}
+                            {{$buku->tanggal}}
                         </div>
                         <div class="text-xl font-base">
                             ISBN

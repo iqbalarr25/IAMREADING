@@ -45,7 +45,7 @@
                     @foreach($bukusall as $searchBuku)
                         <div class="rounded overflow-hidden shadow-lg flex flex-col shadow-2xl hover:bg-gray-100">
                             <a class="p-4" href="/show/{{$searchBuku->id}}/">
-                                <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('img/'.$searchBuku->image) }}" alt="Sunset in the mountains">
+                                <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('cover/'.$searchBuku->image) }}" alt="Sunset in the mountains">
                                 <div class="pt-3 h-full">
                                     <div class="text-lg">
                                         {{$searchBuku->penulis}}
