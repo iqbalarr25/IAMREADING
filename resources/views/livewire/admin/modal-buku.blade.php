@@ -157,6 +157,7 @@
                                     <label for="image"
                                         class="block text-gray-700 text-2xl font-base mb-2">Cover</label>
                                         <div class="bg-gray-100 rounded-3xl">
+                                            @if($image!=null)
                                             <div class="w-2/3 mx-auto">
                                                 @switch($image)
                                                     @case($temp_image)
@@ -166,6 +167,7 @@
                                                         <img src="{{  $image->temporaryUrl() }}" alt="No Image Selected" class="mx-auto">
                                                 @endswitch
                                             </div>
+                                            @endif
                                             <div class="flex w-full items-center justify-center bg-grey-lighter">
                                                 <label class=" flex flex-col items-center button-orange rounded-full py-4 shadow-lg w-full tracking-wide border cursor-pointer">
                                                     <div class="text-white text-2xl font-bold">Select Image</div>

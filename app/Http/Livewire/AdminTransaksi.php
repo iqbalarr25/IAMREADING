@@ -9,7 +9,7 @@ use Livewire\WithFileUploads;
 class AdminTransaksi extends Component
 {
     use WithFileUploads;
-    public $transaksis,$processpage,$deliverypage,$view_transaksi,$openModal,$search;
+    public $transaksis,$processpage,$deliverypage,$view_transaksi,$openModal,$openResi,$search;
     public $orderpage = true;
 
     public function render()
@@ -68,5 +68,19 @@ class AdminTransaksi extends Component
     {
         $this->view_transaksi = Transaksi::find($id);
         $this->openModal();
+    }
+    public function openResi()
+    {
+        $this->openResi = true;
+        $this->openModal = false;
+    }
+    public function closeResi()
+    {
+        $this->openModal = true;
+        $this->openResi = false;
+    }
+    public function save()
+    {
+        $this->openResi();
     }
 }

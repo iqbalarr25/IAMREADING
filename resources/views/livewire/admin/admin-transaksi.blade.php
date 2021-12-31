@@ -83,13 +83,15 @@
                     </td>
                     @endif
                     </tr>
+                    @if($openModal)
+                    @include('livewire.admin.modal-transaksi')
+                    @elseif($openResi)
+                    @include('livewire.admin.modal-resi')
+                    @endif
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    @if($openModal)
-    @include('livewire.admin.modal-transaksi')
-    @endif
 </div>
 

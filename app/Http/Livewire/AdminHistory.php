@@ -15,9 +15,10 @@ class AdminHistory extends Component
     public function render()
     {
         if($this->search!=null){
-            $this->search();
+            $this->transaksis = Transaksi::where([['status','done'],['no_invoice', 'like', '%'.$this->search.'%']])
+            ->orWhere([['status','done'],['ekspedisi', 'like', '%'.$this->search.'%']])->get();
         }else{
-            $this->transaksis = Transaksi::where('status', "order")->get();
+            $this->transaksis = Transaksi::where('status', "done")->get();
         }
         return view('livewire.admin.admin-history');
     }   
@@ -29,32 +30,9 @@ class AdminHistory extends Component
     {
         $this->openModal = false;
     }
-    public function orderpage()
-    {
-        $this->orderpage = true;
-        $this->processpage = false;
-        $this->deliverypage = false;
-    }
-    public function processpage()
-    {
-        $this->orderpage = false;
-        $this->processpage = true;
-        $this->deliverypage = false;
-    }
-    public function deliverypage()
-    {
-        $this->orderpage = false;
-        $this->processpage = false;
-        $this->deliverypage = true;
-    }
     public function view($id)
     {
         $this->view_transaksi = Transaksi::find($id);
         $this->openModal();
-    }
-    private function search()
-    {
-        $this->transaksis = Transaksi::where('no_invoice', 'like', '%'.$this->search.'%')
-        ->orWhere('ekspedisi', 'like', '%'.$this->search.'%')->get();
     }
 }

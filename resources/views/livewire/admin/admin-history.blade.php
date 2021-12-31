@@ -58,26 +58,17 @@
                             <img src="{{ asset('img/view.png') }}" class="mx-auto my-auto">
                         </button>
                     </td>
-                    @if($transaksi->status=="order")
-                    <td class="text-xl text-red-500 font-medium pb-2 mx-3 w-64 text-center my-auto">
-                        Unprocessed
+                    <td class="text-xl text-primary-blue font-medium pb-2 mx-3 w-64 text-center my-auto">
+                        Done
                     </td>
-                    @elseif($transaksi->status=="process")
-                    <td class="text-xl text-green-500 font-medium pb-2 mx-3 w-64 text-center my-auto">
-                        Processed
-                    </td>
-                    @elseif($transaksi->status=="delivery")
-                    <td class="text-xl text-blue-500 font-medium pb-2 mx-3 w-64 text-center my-auto">
-                        Sent
-                    </td>
-                    @endif
                     </tr>
+                    @if($openModal)
+                    @include('livewire.admin.modal-transaksi')
+                    @endif
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    @if($openModal)
-    @include('livewire.admin.modal-transaksi')
-    @endif
+    
 </div>

@@ -185,19 +185,47 @@
                                         08211313733
                                     </div>
                                 </div>
-                                <button wire:click="viewInvoice()" class=" button-orange text-white w-full h-16 text-2xl font-semibold rounded-2xl">
+                                @if($transaksi->status=="delivery" || $transaksi->status=="done")
+                                <div class="font-semibold text-3xl">
+                                    No Resi
+                                </div>
+                                <button class=" bg-blue-100 p-4 text-xl text-primary-blue">
+                                    JD1010101010
+                                </button>
+                                @elseif($transaksi->status=="order" || $transaksi->status=="process")
+                                <button wire:click="viewInvoice" class=" button-orange text-white w-full h-16 text-2xl font-semibold rounded-2xl">
                                     See Invoice
                                 </button>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6">
                     <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                        @if($transaksi->status=="order")
+                        <div class="flex gap-10 w-full">
+                            <button wire:click.prevent="accept" type="button"
+                                class="inline-flex justify-center text-xl w-full px-4 py-5 button-blue rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
+                                Accept
+                            </button>
+                            <button wire:click.prevent="decline" type="button"
+                                class="inline-flex justify-center text-xl w-full px-4 py-5 bg-red-500 rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
+                                Decline
+                            </button>
+                        </div>
+                        
+                        @elseif($transaksi->status=="process")
                         <button wire:click.prevent="save" type="button"
                             class="inline-flex justify-center text-xl w-full px-4 py-5 button-blue rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
                             Save
                         </button>
+                        @elseif($transaksi->status=="delivery")
+                        <button wire:click.prevent="viewInvoice" type="button"
+                            class="inline-flex justify-center text-xl w-full px-4 py-5 button-orange rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
+                            See Invoice
+                        </button>
+                        @endif
                     </span>
                 </div>
             </form>
