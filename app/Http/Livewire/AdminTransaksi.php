@@ -9,7 +9,7 @@ use Livewire\WithFileUploads;
 class AdminTransaksi extends Component
 {
     use WithFileUploads;
-    public $transaksis,$processpage,$deliverypage,$view_transaksi,$openModal,$openResi,$search;
+    public $transaksis,$processpage,$deliverypage,$view_transaksi,$openModal,$openResi,$search,$resi;
     public $orderpage = true;
 
     public function render()

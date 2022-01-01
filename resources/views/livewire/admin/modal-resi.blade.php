@@ -20,8 +20,8 @@
                         <div class="my-2">
                             <input type="text"
                                 class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="isbn" placeholder="Enter ISBN" wire:model="isbn">
-                            @error('isbn') <span class="text-red-500">{{ $message }}</span>@enderror
+                                id="resi" placeholder="Enter No Resi" wire:model="resi">
+                            @error('resi') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                     </div>
                 </div>

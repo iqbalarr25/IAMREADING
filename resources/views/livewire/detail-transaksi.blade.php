@@ -24,7 +24,7 @@
                 </div>
                 <div class="grid grid-cols-3 my-5">
                     <div class="">
-                        <img src="{{ asset('img/'.$transaksi->buku->image) }}">
+                        <img src="{{ asset('cover/'.$transaksi->buku->image) }}">
                     </div>
                     <div class="relative col-start-2 col-end-4 mx-auto my-3">
                         <div class="text-4xl font-medium">

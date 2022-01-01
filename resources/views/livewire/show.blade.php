@@ -151,7 +151,7 @@
                 @foreach($similarBukus as $similarBuku)
                     <div class="w-full max-h-full rounded overflow-hidden shadow-lg relative flex flex-col shadow-2xl hover:bg-gray-100">
                         <a class="p-4" href="/show/{{$similarBuku->id}}/">
-                            <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('img/'.$similarBuku->image) }}" alt="Sunset in the mountains">
+                            <img class="object-cover h-100 w-full hover:opacity-90" src="{{ asset('cover/'.$similarBuku->image) }}" alt="Sunset in the mountains">
                             <div class="pt-3 h-full">
                                 <div class="text-lg">
                                     {{$similarBuku->penulis}}

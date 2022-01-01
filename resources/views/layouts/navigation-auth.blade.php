@@ -26,14 +26,10 @@
                         </button>
                     </x-slot>
                     <x-slot name="content">
-                        <x-dropdown-link class="text-center" :href="route('logout')"
-                            onclick="event.preventDefault();
-                                this.closest('form').submit();">
+                        <x-dropdown-link class="text-center" href="/profile">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-                        <x-dropdown-link class="text-center" :href="route('logout')"
-                            onclick="event.preventDefault();
-                                this.closest('form').submit();">
+                        <x-dropdown-link class="text-center" href="/address">
                             {{ __('Address') }}
                         </x-dropdown-link>
                         <x-dropdown-link class="text-center" :href="route('logout')"
@@ -42,7 +38,7 @@
                             {{ __('History') }}
                         </x-dropdown-link>
                         @if(Auth::user()->role == 'admin')
-                        <x-dropdown-link class="text-center" :href="route('admin')">
+                        <x-dropdown-link class="text-center" href="/admin">
                             {{ __('Admin') }}
                         </x-dropdown-link>
                         @endif

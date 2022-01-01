@@ -8,6 +8,7 @@ use App\Http\Livewire\Search;
 use App\Http\Livewire\Cart;
 use App\Http\Livewire\Admin;
 use App\Http\Livewire\Profile;
+use App\Http\Livewire\Address;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,5 +26,6 @@ Route::get('/search/{judul}', Search::class);
 Route::get('/cart', Cart::class)->middleware('auth');
 Route::get('/admin', Admin::class)->name('admin')->middleware('auth');
 Route::get('/profile', Profile::class)->middleware('auth');
+Route::get('/address', Address::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

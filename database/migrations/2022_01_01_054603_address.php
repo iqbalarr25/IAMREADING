@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Ongkir extends Migration
+class Address extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class Ongkir extends Migration
      */
     public function up()
     {
-        Schema::create('ongkir', function (Blueprint $table) {
+        Schema::create('alamat', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_user')->constrained('users');
+            $table->string('label');
+            $table->string('penerima');
             $table->string('provinsi');
-            $table->string('kabupaten');
             $table->string('kota');
-            $table->integer('jnt');
-            $table->integer('jne');
-            $table->integer('sicepat');
-            $table->integer('anteraja');
+            $table->string('kabupaten');
+            $table->string('kode_pos');
+            $table->string('alamat_lengkap');
+            $table->timestamps();
         });
     }
 
@@ -32,6 +34,6 @@ class Ongkir extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ongkir');
+        Schema::dropIfExists('alamat');
     }
 }

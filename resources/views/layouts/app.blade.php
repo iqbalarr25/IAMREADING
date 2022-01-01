@@ -21,6 +21,7 @@
             *{
                 font-family: 'Baloo Bhaina 2', cursive;
             }
+            .dropdown .dropdown-menu{ max-height:250px; overflow:auto; }
             .border-orange{
                 border-color: #F87D09;
             }

@@ -10,19 +10,27 @@
                 </a>
             </div>
             <div class="dropdown inline-block relative my-auto ml-14">
-                <div class="flex justify-between w-36">
-                    <button class="text-gray-700 font-semibold text-2xl my-auto rounded inline-flex items-center">
-                        <span>Categories</span>
-                    </button>
-                    <img src="{{ asset('img/dropdown-close.png') }}" alt="" class="w-4 my-auto">
-                </div>
-                <ul class="dropdown-content absolute hidden text-gray-700 pt-1">
-                    <li>
-                        <div class=" w-64 h-64 rounded-t bg-gray-200 py-2 px-4 block whitespace-no-wrap" href="#">
-                            Option 1
+                <x-dropdown align="left" width="48">
+                    <x-slot name="trigger">
+                        <div class="flex justify-between w-36">
+                            <button class="text-gray-700 font-semibold text-2xl my-auto rounded inline-flex items-center">
+                                <span>Categories</span>
+                            </button>
+                            <img src="{{ asset('img/dropdown-close.png') }}" alt="" class="w-4 my-auto">
                         </div>
-                    </li>
-                </ul>
+                    </x-slot>
+                    <x-slot name="content">
+                        <x-dropdown-link class="text-center" href="/search/All">
+                            {{ __('All') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link class="text-center" href="/search/Novel">
+                            {{ __('Novel') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link class="text-center" href="/search/Komik">
+                            {{ __('Komik') }}
+                        </x-dropdown-link>
+                    </x-slot>
+                </x-dropdown>
             </div>
             <div class="relative mx-auto text-gray-600 my-auto">
                 <input wire:model="search" class=" w-96 p-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-md-center"
@@ -63,9 +71,7 @@
                         <x-dropdown-link class="text-center" href="/profile">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-                        <x-dropdown-link class="text-center" :href="route('logout')"
-                            onclick="event.preventDefault();
-                                this.closest('form').submit();">
+                        <x-dropdown-link class="text-center" href="/address">
                             {{ __('Address') }}
                         </x-dropdown-link>
                         <x-dropdown-link class="text-center" :href="route('logout')"
