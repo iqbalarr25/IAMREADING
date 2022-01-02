@@ -27,6 +27,13 @@
                                     @error('label') <span class="text-red-500">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="my-7">
+                                    <label for="no_hp" class="text-2xl font-semibold">No HP</label>
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="no_hp" placeholder="Enter No HP" wire:model="no_hp">
+                                    @error('no hp') <span class="text-red-500">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="my-7">
                                     <label for="penerima" class="text-2xl font-semibold">Reciever</label>
                                     <input type="text"
                                         class="shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

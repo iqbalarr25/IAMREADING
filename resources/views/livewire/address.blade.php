@@ -10,7 +10,7 @@
                 Add Address
             </div>
         </button>
-        @if($alamats==null)
+        @if($alamats->isEmpty())
         <div class="text-2xl text-center text-gray-400 font-semibold">
             No address listed yet.
         </div>
@@ -23,9 +23,11 @@
                         <div class="text-2xl font-bold my-auto">
                             {{$alamat->label}}
                         </div>
+                        @if($alamat->status=="set")
                         <div class="text-2xl font-semibold text-orange bg-jenis px-12 rounded-full py-2">
                             Main
                         </div>
+                        @endif
                     </div>
                     <div class="flex gap-5">
                         <button wire:click.prevent="edit({{ $alamat->id }})">
@@ -37,11 +39,16 @@
                     </div>
                 </div>
                 <div class="text-2xl my-5 font-medium">
-                    {{$alamat->penerima}} | {{$alamat->user->phone}}
+                    {{$alamat->penerima}} | {{$alamat->no_hp}}
                 </div>
                 <div class="text-2xl my-3 text-gray-600">
                     {{$alamat->alamat_lengkap}}, {{$alamat->kabupaten}}, {{$alamat->kota}}, {{$alamat->provinsi}} {{$alamat->kode_pos}}
                 </div>
+                @if($alamat->status!="set")
+                <button wire:click="main({{ $alamat->id }})" class="button-orange text-white rounded-full px-4 py-2">
+                    Set As Main Address
+                </button>
+                @endif
             </div>
         </div>
         @endforeach

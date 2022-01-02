@@ -17,12 +17,14 @@ class Address extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('users');
             $table->string('label');
+            $table->string('no_hp');
             $table->string('penerima');
             $table->string('provinsi');
             $table->string('kota');
             $table->string('kabupaten');
             $table->string('kode_pos');
             $table->string('alamat_lengkap');
+            $table->string('status');
             $table->timestamps();
         });
     }

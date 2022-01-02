@@ -19,4 +19,5 @@ class Transaksi extends Model
     {
         return $this->belongsTo('App\Models\Buku', 'id_buku', 'id');
     }
+    
 }
