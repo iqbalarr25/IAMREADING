@@ -9,7 +9,7 @@ class Transaksi extends Model
 {
     use HasFactory;
     protected $table = 'transaksi';
-    protected $fillable = ['no_invoice','no_resi','id_user','id_buku','jumlah','jumlah_harga','ekspedisi','metode_pembayaran','status','image'];
+    protected $fillable = ['no_invoice','no_resi','id_user','id_buku','jumlah','jumlah_harga','ekspedisi','metode_pembayaran','status','image','SNumber','SName'];
 
     public function user()
     {
@@ -19,5 +19,4 @@ class Transaksi extends Model
     {
         return $this->belongsTo('App\Models\Buku', 'id_buku', 'id');
     }
-    
 }

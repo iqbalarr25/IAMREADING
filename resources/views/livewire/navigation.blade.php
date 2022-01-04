@@ -74,9 +74,7 @@
                         <x-dropdown-link class="text-center" href="/address">
                             {{ __('Address') }}
                         </x-dropdown-link>
-                        <x-dropdown-link class="text-center" :href="route('logout')"
-                            onclick="event.preventDefault();
-                                this.closest('form').submit();">
+                        <x-dropdown-link class="text-center" href="/history">
                             {{ __('History') }}
                         </x-dropdown-link>
                         @if(Auth::user()->role == 'admin')

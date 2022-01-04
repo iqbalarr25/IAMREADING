@@ -36,7 +36,7 @@
             }
             .button-orange{
                 background-color: #F87D09;
-            }
+            }   
             .text-orange{
                 color: #F87D09;
             }

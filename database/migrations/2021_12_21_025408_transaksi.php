@@ -25,6 +25,8 @@ class Transaksi extends Migration
             $table->string('ekspedisi')->nullable();
             $table->string('metode_pembayaran')->nullable();
             $table->string('status');
+            $table->string('SNumber')->nullable();
+            $table->string('SName')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
