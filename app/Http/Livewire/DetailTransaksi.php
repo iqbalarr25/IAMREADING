@@ -86,5 +86,6 @@ class DetailTransaksi extends Component
             }
         }
         $this->emit('cart');
+        return redirect('/history');
     }
 }

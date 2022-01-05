@@ -13,6 +13,7 @@ class CompletePayment extends Component
 {
     use WithFileUploads;
     public $payment,$alamat,$openModal,$image,$temp_image,$deadline,$sender_number,$sender_name,$sends;
+    protected $listeners = ['payment' => 'render'];
 
     public function mount($no_invoice)
     {

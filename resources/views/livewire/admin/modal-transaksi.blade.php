@@ -27,7 +27,7 @@
                                         No. Invoice
                                     </div>
                                     <div class="font-medium mt-2">
-                                        INV\20211128
+                                        INV\{{$view_transaksi[0]->no_invoice}}
                                     </div>
                                 </div>
                                 <div class="text-2xl my-7">
@@ -35,7 +35,7 @@
                                         Purchase Date
                                     </div>
                                     <div class="font-medium mt-2">
-                                        29 November 2021
+                                        {{$view_transaksi[0]->updated_at->format('d F Y')}}
                                     </div>
                                 </div>
                                 <div class="text-2xl my-7">
@@ -43,41 +43,43 @@
                                         Payment Method
                                     </div>
                                     <div class="font-medium mt-2">
-                                        DANA
+                                        {{strtoupper($view_transaksi[0]->metode_pembayaran)}}
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold my-7">
                                     Order Detail
                                 </div>
-                                <div class="grid grid-cols-5">
+                                @foreach($view_transaksi as $transaksi)
+                                <div class="grid grid-cols-5 my-5">
                                     <div class="w-24">
-                                        <img src="{{ asset('cover/'.$view_transaksi->buku->image) }}">
+                                        <img src="{{ asset('cover/'.$transaksi->buku->image) }}">
                                     </div>
                                     <div class="relative col-start-2 col-end-6 py-2 px-2">
                                         <div class="text-xl font-semibold">
-                                            Jujutsu Kaisen 01
+                                            {{$transaksi->buku->judul}}
                                         </div>
                                         <div class="absolute inset-x-0 bottom-0 left-1">
                                             <div class="text-xl font-medium my-4">
-                                                1 item
+                                                {{$transaksi->jumlah}} item
                                             </div>
                                             <div class="text-xl font-base">
-                                                @if($view_transaksi->buku->diskon == null)
-                                                    Rp.32.000
+                                                @if($transaksi->buku->diskon == null)
+                                                    Rp.{{number_format($transaksi->buku->harga,0,",",".")}}
                                                 @else
-                                                    Rp.32.000
+                                                    Rp.{{number_format($transaksi->buku->diskon,0,",",".")}}
                                                 @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                                 <div class="my-10 text-2xl">
                                     <div class="flex justify-between my-4 font-medium">
                                         <div>
                                             Total Payment
                                         </div>
                                         <div class="font-semibold">
-                                            Rp.42.000
+                                            Rp.{{number_format($view_transaksi[0]->ongkir + $totalOrder,0,",",".")}}
                                         </div>
                                     </div>
                                     <div class="flex justify-between my-4">
@@ -85,7 +87,7 @@
                                             Total Order
                                         </div>
                                         <div>
-                                            Rp.32.000
+                                            Rp.{{number_format($totalOrder,0,",",".")}}
                                         </div>
                                     </div>
                                     <div class="flex justify-between my-4">
@@ -93,7 +95,7 @@
                                             Shipping
                                         </div>
                                         <div>
-                                            Rp.10.000
+                                            Rp.{{number_format($view_transaksi[0]->ongkir,0,",",".")}}
                                         </div>
                                     </div>
                                     <div class="flex justify-between my-4">
@@ -131,7 +133,15 @@
                                         Ekspedition
                                     </div>
                                     <div class="font-medium mt-2">
-                                        J&T Express - Regular
+                                        @if($view_transaksi[0]->ekspedisi == "anteraja")
+                                            Anteraja - Regular
+                                        @elseif($view_transaksi[0]->ekspedisi == "jnt")
+                                            J&T Express - Regular
+                                        @elseif($view_transaksi[0]->ekspedisi == "jne")
+                                            JNE Express - Regular
+                                        @elseif($view_transaksi[0]->ekspedisi == "sicepat")
+                                            Sicepat Ekpres - Regular
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="text-2xl my-7">
@@ -140,22 +150,14 @@
                                     </div>
                                     <div>
                                         <div class="font-medium mt-2">
-                                            Budi
+                                            {{$alamat->penerima}}
                                         </div>
                                         <div class="font-medium mt-2">
-                                            081212121212
+                                            {{$alamat->no_hp}}
                                         </div>
                                         <div class="font-medium mt-2">
-                                            Jalan Bandung Lautan Api No. 10, Kel. Cipamokolan, Kec. Rancasari, Bandung, Jawa Barat 40401
+                                            {{$alamat->alamat_lengkap}}, {{$alamat->kabupaten}}, {{$alamat->kecamatan}} {{$alamat->kota}}, {{$alamat->provinsi}} {{$alamat->kode_pos}}
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="text-2xl my-7">
-                                    <div>
-                                        Payment Method
-                                    </div>
-                                    <div class="font-medium mt-2">
-                                        DANA
                                     </div>
                                 </div>
                                 <div class="font-bold text-3xl my-10">
@@ -166,7 +168,7 @@
                                         Name
                                     </div>
                                     <div class="font-medium mt-2">
-                                        Budi Santoso
+                                        {{$transaksis[0]->user->name}}
                                     </div>
                                 </div>
                                 <div class="text-2xl my-7">
@@ -174,7 +176,7 @@
                                         Email
                                     </div>
                                     <div class="font-medium mt-2">
-                                        iqbalarrafi39@gmail.com
+                                        {{$transaksis[0]->user->email}}
                                     </div>
                                 </div>
                                 <div class="text-2xl my-7">
@@ -182,7 +184,7 @@
                                         Phone Number
                                     </div>
                                     <div class="font-medium mt-2">
-                                        08211313733
+                                        {{$transaksis[0]->user->phone}}
                                     </div>
                                 </div>
                                 @if($transaksi->status=="delivery" || $transaksi->status=="done")
@@ -190,12 +192,14 @@
                                     No Resi
                                 </div>
                                 <button class=" bg-blue-100 p-4 text-xl text-primary-blue">
-                                    JD1010101010
+                                    {{$transaksi->no_resi}}
                                 </button>
                                 @elseif($transaksi->status=="order" || $transaksi->status=="process")
-                                <button wire:click="viewInvoice" class=" button-orange text-white w-full h-16 text-2xl font-semibold rounded-2xl">
-                                    See Invoice
-                                </button>
+                                <a href="/invoice/{{$view_transaksi[0]->image}}" target="_blank">
+                                    <button  class=" button-orange text-white w-full h-16 text-2xl font-semibold rounded-2xl">
+                                        See Invoice
+                                    </button>
+                                </a>
                                 @endif
                             </div>
                         </div>
@@ -221,10 +225,12 @@
                             Save
                         </button>
                         @elseif($transaksi->status=="delivery")
-                        <button wire:click.prevent="viewInvoice" type="button"
-                            class="inline-flex justify-center text-xl w-full px-4 py-5 button-orange rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
-                            See Invoice
-                        </button>
+                        <a href="/invoice/{{$view_transaksi[0]->image}}" target="_blank" class="w-full">
+                            <button type="button"
+                                class="inline-flex justify-center text-xl w-full px-4 py-5 button-orange rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
+                                See Invoice
+                            </button>
+                        </a>
                         @endif
                     </span>
                 </div>

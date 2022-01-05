@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Address;
 use App\Http\Livewire\History;
+use App\Http\Livewire\TransaksiDetail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +32,6 @@ Route::get('/admin', Admin::class)->name('admin')->middleware('auth');
 Route::get('/profile', Profile::class)->middleware('auth');
 Route::get('/address', Address::class)->middleware('auth');
 Route::get('/history', History::class)->middleware('auth');
+Route::get('/transaksidetail/{no_invoice}', TransaksiDetail::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

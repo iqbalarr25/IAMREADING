@@ -32,6 +32,10 @@
                 <button class="cursor-default bg-green-200 px-5 rounded-full">
                     Done
                 </button>
+                @elseif($history->status=="delivery")
+                <button class="cursor-default bg-jenis text-orange px-5 rounded-full">
+                    Delivery
+                </button>
                 @elseif($history->status=="process")
                 <button class="cursor-default bg-jenis text-orange px-5 rounded-full">
                     Process
@@ -67,13 +71,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex gap-5 col-start-4 col-end-6">
-                    <a href="@if($history->status=="payment") /complete-payment/{{ $history->no_invoice }} @else /detailtransaksi/{{ $history->no_invoice }} @endif">
+                <div class="flex gap-5 col-start-4 col-end-6 justify-end">
+                    <a href="@if($history->status=="payment") /complete-payment/{{ $history->no_invoice }} @else /transaksidetail/{{ $history->no_invoice }} @endif">
                         <button class="mt-48 border text-primary-blue rounded-full px-6 py-1 font-semibold">Transaction Details</button>
                     </a>
+                    @if($history->status=="done")
                     <div>
                         <button class="mt-48 button-blue rounded-full px-6 text-white py-1 font-semibold">Complain</button>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="absolute right-0 top-0 z-0">

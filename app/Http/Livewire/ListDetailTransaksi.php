@@ -7,7 +7,7 @@ use App\Models\Transaksi;
 
 class ListDetailTransaksi extends Component
 {
-    public $transaksis,$id_transaksis,$jumlah,$jumlah_harga;
+    public $transaksis,$jumlah,$jumlah_harga;
     public $count = 1;
 
     public function render()
