@@ -31,7 +31,7 @@ Route::get('/cart', Cart::class)->middleware('auth');
 Route::get('/admin', Admin::class)->name('admin')->middleware('auth');
 Route::get('/profile', Profile::class)->middleware('auth');
 Route::get('/address', Address::class)->middleware('auth');
-Route::get('/history', History::class)->middleware('auth');
+Route::get('/history', History::class)->name('history')->middleware('auth');
 Route::get('/transaksidetail/{no_invoice}', TransaksiDetail::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

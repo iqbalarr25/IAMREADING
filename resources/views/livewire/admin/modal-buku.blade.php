@@ -17,7 +17,7 @@
                         <div class="text-4xl font-bold">
                             Book Details
                         </div>
-                        <div class="grid grid-cols-2 gap-10 overflow-y-auto" style="max-height: 700px">
+                        <div class="grid grid-cols-2 gap-10 overflow-y-auto" style="max-height: 500px">
                             <div>
                                 <div class="my-8">
                                     <label for="isbn"

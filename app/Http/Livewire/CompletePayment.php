@@ -13,7 +13,7 @@ class CompletePayment extends Component
 {
     use WithFileUploads;
     public $payment,$alamat,$openModal,$image,$temp_image,$deadline,$sender_number,$sender_name,$sends;
-    protected $listeners = ['payment' => 'render'];
+    protected $listeners = ['payment' => 'mount'];
 
     public function mount($no_invoice)
     {
@@ -28,13 +28,15 @@ class CompletePayment extends Component
             ->first();
         $this->alamat = Alamat::where('status', "set")->where('id_user', Auth::id())->first();
         $this->deadline = $this->payment->updated_at->addDays(2)->format('d');
+        if(now()->format('d')==$this->deadline){
+            $this->payment->status = "decline";
+            $this->payment->save();
+            return redirect('history');
+        }
     }
     public function render()
     {
-        if(now()->format('d')==$this->deadline){
-            $this->payment->status = "decline";
-            return redirect('livewire.history');
-        }
+        
         return view('livewire.complete-payment');
     }
     public function openModalInvoice()

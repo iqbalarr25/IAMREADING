@@ -17,7 +17,7 @@
                         <div class="text-4xl font-bold">
                             Transaction Details
                         </div>
-                        <div class="grid grid-cols-2 gap-20 overflow-y-auto" style="max-height: 700px">
+                        <div class="grid grid-cols-2 gap-20 overflow-y-auto" style="max-height: 500px">
                             <div>
                                 <div class="font-bold text-3xl my-10">
                                     Shopping Detail

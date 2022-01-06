@@ -165,7 +165,7 @@
                 @elseif($transaksis[0]->status=="delivery")
                 @elseif($transaksis[0]->status=="decline")
                 @elseif($transaksis[0]->status!="cart")
-                <button class="w-full h-16 button-blue text-white rounded-full text-2xl font-bold my-3">
+                <button wire:click.prevent="cancel({{ $transaksis[0]->id }})" class="w-full h-16 button-blue text-white rounded-full text-2xl font-bold my-3">
                     Cancel order
                 </button>
                 @endif

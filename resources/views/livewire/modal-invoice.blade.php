@@ -17,7 +17,7 @@
                         <div class="text-4xl font-semibold">
                             Upload Invoice
                         </div>
-                        <div class="overflow-y-auto appearance-none"style="max-height: 700px">
+                        <div class="overflow-y-auto appearance-none"style="max-height: 500px">
                             <div class="mx-5">
                                 <div class="my-7">
                                     <label for="sender_number" class="text-2xl font-semibold">Sender's Number</label>

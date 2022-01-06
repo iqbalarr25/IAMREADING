@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 use App\Models\Transaksi;
 use App\Models\Alamat;
+use App\Models\Buku;
 use Illuminate\Support\Facades\Auth;
 
 use Livewire\Component;
@@ -35,6 +36,17 @@ class TransaksiDetail extends Component
         foreach($datas as $transaksi){
             $transaksi->status = "done";
             $transaksi->save();
+        }
+        return redirect('/history');
+    }
+    public function cancel($id)
+    {
+        $data = Transaksi::where('id', $id)->first();
+        $datas = Transaksi::where('no_invoice', $data->no_invoice)->get();
+        foreach($datas as $transaksi){
+            $transaksi->buku->stock += $transaksi->jumlah; 
+            $transaksi->buku->save();
+            $transaksi->delete();
         }
         return redirect('/history');
     }

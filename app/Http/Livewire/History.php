@@ -18,10 +18,12 @@ class History extends Component
                 $q->where('judul', 'like', '%'.$this->search.'%');
             })->where('id_user', Auth::id())->groupBy('no_invoice')
             ->selectRaw('sum(jumlah_harga) as sum, id, no_invoice, no_resi, id_user, id_buku, jumlah, ongkir, jumlah_harga, ekspedisi, metode_pembayaran, status, SNumber, SName, image, created_at, updated_at')
+            ->orderByDesc('status')
             ->get();
         }else{  
             $this->histories = Transaksi::where('id_user', Auth::id())->groupBy('no_invoice')
             ->selectRaw('sum(jumlah_harga) as sum, id, no_invoice, no_resi, id_user, id_buku, jumlah, ongkir, jumlah_harga, ekspedisi, metode_pembayaran, status, SNumber, SName, image, created_at, updated_at')
+            ->orderByDesc('status')
             ->get();
         }
         return view('livewire.history');
