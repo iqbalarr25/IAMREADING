@@ -226,7 +226,7 @@
                             class="inline-flex justify-center text-xl w-full px-4 py-5 button-blue rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
                             Save
                         </button>
-                        @elseif($transaksi->status=="delivery" && $transaksi->metode_pembayaran!="cod")
+                        @elseif($transaksi->status=="delivery" || $transaksi->status=="done" && $transaksi->metode_pembayaran!="cod")
                         <a href="/invoice/{{$view_transaksi[0]->image}}" target="_blank" class="w-full">
                             <button type="button"
                                 class="inline-flex justify-center text-xl w-full px-4 py-5 button-orange rounded-full leading-6 font-semibold text-white shadow-sm hover:bg-red-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-2xl sm:leading-5">
