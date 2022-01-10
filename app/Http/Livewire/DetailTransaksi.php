@@ -64,7 +64,11 @@ class DetailTransaksi extends Component
                 $save->ongkir = $this->ongkir;
                 $save->ekspedisi = $this->ekspedisi;
                 $save->metode_pembayaran = $this->payment;
-                $save->status = "payment";
+                if($this->payment=="cod"){
+                    $save->status = "order";
+                }else{
+                    $save->status = "payment";
+                }
                 $save->save();
             }
         }else{
@@ -80,7 +84,11 @@ class DetailTransaksi extends Component
                     $save->ongkir = $this->ongkir;
                     $save->ekspedisi = $this->ekspedisi;
                     $save->metode_pembayaran = $this->payment;
-                    $save->status = "payment";
+                    if($this->payment=="cod"){
+                        $save->status = "order";
+                    }else{
+                        $save->status = "payment";
+                    }
                     $save->save();
                 }
             }

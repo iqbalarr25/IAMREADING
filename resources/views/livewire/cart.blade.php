@@ -6,12 +6,12 @@
         </div>
         <div class="grid grid-cols-5 gap-10">
             <div class="col-start-1 col-end-4">
+                @if(!$carts->isEmpty())
                 <div class="flex gap-8 my-5">
                     <input class="p-3" type="checkbox" wire:click="updateSelectAll">
                     <div class="text-2xl font-semibold text-primary-blue my-auto">
                         Select All
                     </div>
-                    <div></div>
                 </div>
                 @foreach($carts as $cart)
                 <hr class="border-gray-400 my-10">
@@ -61,6 +61,7 @@
                     </div>
                 </div>
                 @endforeach
+                @endif
             </div>
             <div class="col-start-4 col-end-6">
                 <div class="text-3xl font-bold">

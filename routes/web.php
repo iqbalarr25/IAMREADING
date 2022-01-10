@@ -23,7 +23,7 @@ use App\Http\Livewire\TransaksiDetail;
 |
 */
 Route::get('/', Dashboard::class)->name('/');
-Route::get('/detailtransaksi/{id}', DetailTransaksi::class)->middleware('auth');
+Route::get('/detailtransaksi/{id}', DetailTransaksi::class)->name('detailtransaksi/{id}')->middleware('auth');
 Route::get('/complete-payment/{no_invoice}', CompletePayment::class)->middleware('auth');
 Route::get('/show/{id}', Show::class);
 Route::get('/search/{judul}', Search::class);

@@ -63,9 +63,11 @@ class Show extends Component
                 'jumlah_harga' => $this->jumlah_harga,
                 'status' => "cart",
             ]);
+            $bukuNow = Transaksi::latest()->first();
             $this->buku->stock = $this->buku->stock-$this->jumlahBeli;
             $this->buku->save();
             $this->emit('cart');
+            return redirect('detailtransaksi/'.$bukuNow->id);
         }else{
             return redirect('login');
         }

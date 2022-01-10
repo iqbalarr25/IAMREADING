@@ -33,9 +33,9 @@
                 </x-dropdown>
             </div>
             <div class="relative mx-auto text-gray-600 my-auto">
-                <input wire:model="search" class=" w-96 p-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-md-center"
+                <input wire:model="search" wire:keydown.enter="search" class=" w-96 p-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-md-center"
                 type="search" name="search" placeholder="Search">
-                    <button wire:click="search" class="absolute right-0 top-0 mt-4 mr-4">
+                    <button class="absolute right-0 top-0 mt-4 mr-4">
                         <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                         viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"

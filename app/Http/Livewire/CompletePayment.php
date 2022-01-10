@@ -12,11 +12,12 @@ use Carbon\Carbon;
 class CompletePayment extends Component
 {
     use WithFileUploads;
-    public $payment,$alamat,$openModal,$image,$temp_image,$deadline,$sender_number,$sender_name,$sends;
+    public $payment,$alamat,$openModal,$image,$temp_image,$deadline,$sender_number,$sender_name,$sends,$no_invoice;
     protected $listeners = ['payment' => 'mount'];
 
     public function mount($no_invoice)
     {
+        $this->no_invoice = $no_invoice;
         $datas = Transaksi::where('no_invoice', $no_invoice)->where('id_user', Auth::id())->get();
         foreach($datas as $data){
             $this->sends[] = $data;
@@ -26,17 +27,21 @@ class CompletePayment extends Component
             ->where('id_user', Auth::id())
             ->selectRaw('sum(jumlah_harga) as sum, id, no_invoice, no_resi, id_user, id_buku, jumlah, ongkir, jumlah_harga, ekspedisi, metode_pembayaran, status, SNumber, SName, image, created_at, updated_at')
             ->first();
-        $this->alamat = Alamat::where('status', "set")->where('id_user', Auth::id())->first();
-        $this->deadline = $this->payment->updated_at->addDays(2)->format('d');
         if(now()->format('d')==$this->deadline){
             $this->payment->status = "decline";
             $this->payment->save();
             return redirect('history');
         }
+        $this->deadline = $this->payment->updated_at->addDays(2)->format('d');
+        $this->alamat = Alamat::where('status', "set")->where('id_user', Auth::id())->first();
     }
     public function render()
     {
-        
+        $this->payment = Transaksi::groupBy('no_invoice')
+            ->where('no_invoice', $this->no_invoice)
+            ->where('id_user', Auth::id())
+            ->selectRaw('sum(jumlah_harga) as sum, id, no_invoice, no_resi, id_user, id_buku, jumlah, ongkir, jumlah_harga, ekspedisi, metode_pembayaran, status, SNumber, SName, image, created_at, updated_at')
+            ->first();
         return view('livewire.complete-payment');
     }
     public function openModalInvoice()

@@ -37,10 +37,21 @@ class Cart extends Component
     }
     public function delete($id)
     {
-        $test = Transaksi::find($id);
-        $test->buku->stock += $test->jumlah;
-        $test->buku->save();
-        $test->delete();
-        $this->emit('cart');
+        if(count($this->selectedBukus)==0){
+            $test = Transaksi::find($id);
+            $test->buku->stock += $test->jumlah;
+            $test->buku->save();
+            $test->delete();
+            $this->emit('cart');
+        }elseif(count($this->selectedBukus)==1 && $id == $this->selectedBukus[0]){
+            foreach($this->selectedBukus as $selectedBuku){
+                $buku = Transaksi::where('id', $selectedBuku)->first();
+                $buku->buku->stock += $buku->jumlah;
+                $buku->buku->save();
+                $this->selectedBukus = [];
+                $buku->delete();
+            }
+            $this->emit('cart');
+        }
     }
 }

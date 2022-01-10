@@ -11,6 +11,7 @@ class Address extends Component
 {
     public $openModal;
     public $alamat_id,$alamats,$provinsislist,$kotaslist,$kabupatenslist,$label,$no_hp,$penerima,$provinsi,$kota,$kabupaten,$kode_pos,$alamat_lengkap;
+    public $status = "notset";
     
     public function render()
     {
@@ -43,6 +44,7 @@ class Address extends Component
         $this->kabupaten = "";
         $this->kode_pos = "";
         $this->alamat_lengkap = "";
+        $this->status = "";
     }
     public function saveAddress()
     {
@@ -66,7 +68,7 @@ class Address extends Component
             'kabupaten' => $this->kabupaten,
             'kode_pos' => $this->kode_pos,
             'alamat_lengkap' => $this->alamat_lengkap,
-            'status' => "notset",
+            'status' => "$this->status",
         ]);
         $this->closeModal();
         $this->resetModal();
@@ -83,6 +85,7 @@ class Address extends Component
         $this->kabupaten = $post->kabupaten;
         $this->kode_pos = $post->kode_pos;
         $this->alamat_lengkap = $post->alamat_lengkap;
+        $this->status = $post->status;
         $this->openModal();
     }
     public function delete($id)
@@ -92,10 +95,12 @@ class Address extends Component
     public function main($id)
     {
         $unMain = Alamat::where('id_user',Auth::id())->where('status', "set")->first();
-        $unMain->status = "notset";
+        if($unMain!=null){
+            $unMain->status = "notset";
+            $unMain->save();
+        }
         $toMain = Alamat::find($id);
         $toMain->status = "set";
         $toMain->save();
-        $unMain->save();
     }
 }

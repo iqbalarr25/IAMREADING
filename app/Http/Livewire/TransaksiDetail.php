@@ -35,6 +35,8 @@ class TransaksiDetail extends Component
         $datas = Transaksi::where('no_invoice', $data->no_invoice)->get();
         foreach($datas as $transaksi){
             $transaksi->status = "done";
+            $transaksi->buku->terjual = $transaksi->jumlah;
+            $transaksi->buku->save();
             $transaksi->save();
         }
         return redirect('/history');

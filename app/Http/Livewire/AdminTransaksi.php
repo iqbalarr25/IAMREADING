@@ -20,21 +20,21 @@ class AdminTransaksi extends Component
                 $this->transaksis = Transaksi::where([['status','order'],['no_invoice', 'like', '%'.$this->search.'%']])
                 ->orWhere([['status','order'],['ekspedisi', 'like', '%'.$this->search.'%']])->get();
             }else{
-                $this->transaksis = Transaksi::where('status', "order")->latest()->get();
+                $this->transaksis = Transaksi::where('status', "order")->get();
             }
         }elseif($this->processpage){
             if($this->search!=null){
                 $this->transaksis = Transaksi::where([['status','process'],['no_invoice', 'like', '%'.$this->search.'%']])
                 ->orWhere([['status','process'],['ekspedisi', 'like', '%'.$this->search.'%']])->get();
             }else{
-                $this->transaksis = Transaksi::where('status', "process")->latest()->get();
+                $this->transaksis = Transaksi::where('status', "process")->get();
             }
         }elseif($this->deliverypage){
             if($this->search!=null){
                 $this->transaksis = Transaksi::where([['status','delivery'],['no_invoice', 'like', '%'.$this->search.'%']])
                 ->orWhere([['status','delivery'],['ekspedisi', 'like', '%'.$this->search.'%']])->get();
             }else{
-                $this->transaksis = Transaksi::where('status', "delivery")->latest()->get();
+                $this->transaksis = Transaksi::where('status', "delivery")->get();
             }
         }
         return view('livewire.admin.admin-transaksi');

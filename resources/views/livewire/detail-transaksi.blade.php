@@ -100,9 +100,12 @@
                         No address listed yet.
                     </div>
                     <div class="mx-6 mt-8">
-                        <button class="text-primary-blue border rounded-full w-full h-14 text-2xl font-bold">
-                            Add Shipping Address
-                        </button>
+                        <form action="/address">
+                            <button class="text-primary-blue border rounded-full w-full h-14 text-2xl font-bold">
+                                Add Shipping Address
+                            </button>
+                        </form>
+                        
                     </div>
                     @else
                     @foreach($alamats as $alamat)
